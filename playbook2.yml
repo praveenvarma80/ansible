@@ -1,0 +1,14 @@
+---
+- name: create a folder on all the server and copy the passwd file into it
+  hosts: all
+  tasks:
+    - name: create folder on all server
+      file: 
+       name: /tmp/dir1
+       state: directory
+    - name: copy the passwd file
+      copy:
+        src: /etc/passwd
+        dest: /tmp/dir1
+...
+

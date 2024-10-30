@@ -1,0 +1,19 @@
+---
+- name: create a empty folder
+  hosts: all
+  tasks:
+    - name: create a new folder
+      file:
+        name: /tmp/jenkins
+        state: directory
+    - name: download jenkins.war file
+      get_url:
+        url: https://get.jenkins.io/war-stable/2.462.3/jenkins.war
+        dest: /tmp/jenkins
+    - name: change permission 
+      file:
+        name: /tmp/jenkins/jenkins.war
+        mode: 700
+...
+
+
